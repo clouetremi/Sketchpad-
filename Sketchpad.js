@@ -34,7 +34,12 @@ let buttonReset = document.querySelector("#buttonReset");
 buttonReset.addEventListener("click", () => {
     container.innerHTML = "";
     x = prompt("combien voulez vous choisir de grille");
+    if (x > 100){
+        alert("mistake, enter a number under 100");
+        
+    } else {
     y = x;
     humanAnswer = x*y
     callInnerDiv();
+    }
 });
