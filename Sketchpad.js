@@ -20,7 +20,7 @@ function callInnerDiv() {
         innerDiv.style.height = `${100 / y}%`;
 
         innerDiv.addEventListener("mouseenter", () => {
-            innerDiv.style.backgroundColor = "rgba(0, 0, 235, 0.5)"
+            innerDiv.style.backgroundColor = getRandomColor();
         });
 
         container.appendChild(innerDiv);
@@ -30,16 +30,25 @@ function callInnerDiv() {
 };
 callInnerDiv();
 
+
+function getRandomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgba(${r}, ${g}, ${b}, 0.5)`;
+};
+
+
 let buttonReset = document.querySelector("#buttonReset");
 buttonReset.addEventListener("click", () => {
     container.innerHTML = "";
     x = prompt("combien voulez vous choisir de grille");
-    if (x > 100){
+    if (x > 100) {
         alert("mistake, enter a number under 100");
-        
+
     } else {
-    y = x;
-    humanAnswer = x*y
-    callInnerDiv();
+        y = x;
+        humanAnswer = x * y
+        callInnerDiv();
     }
 });
